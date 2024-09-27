@@ -27,7 +27,12 @@ async function loadVoices(){
     });
     
 }
-loadVoices() 
+
+if ('speechSynthesis' in window) {
+    loadVoices() 
+} else {
+    alert("SpeechSynthesis is not supported in this browser.");
+}
 
 voiceSelect.addEventListener("change", ()=>{
     // console.log(voiceSelect.value)
